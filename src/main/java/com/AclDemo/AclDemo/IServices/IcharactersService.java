@@ -1,25 +1,21 @@
 package com.AclDemo.AclDemo.IServices;
 
-import com.AclDemo.AclDemo.Mappers.DTOs.CharacterDTO;
-import com.AclDemo.AclDemo.Models.CharactersModel;
+
+import com.AclDemo.AclDemo.Models.Character;
 
 import java.util.List;
 
 public interface IcharactersService {
 
-    List<CharactersModel> getAll();
+    List<Character> getAll();
 
-    CharactersModel findById(Long characterId);
+    Character findById(Long characterId);
 
-    List<CharactersModel> findByName(String name);
+    List<Character> findByName(String name);
+
+    Character save(Character character);
 
     void delete(Long id);
 
-    CharactersModel save(CharactersModel charactersModel);
 
-    List<CharactersModel> findByMovieId(Long idMovie);
-
-    void addMovies(Long characterId, List<Long> moviesIds);
-
-    void removeMovies(Long characterId, List<Long> moviesIds);
 }

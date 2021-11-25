@@ -1,4 +1,4 @@
-package com.AclDemo.AclDemo.Mappers.DTOs;
+package com.AclDemo.AclDemo.Mappers.DTOs.MoviesDTOs;
 
 import lombok.Getter;
 import lombok.Setter;

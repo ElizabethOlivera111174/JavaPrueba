@@ -1,19 +1,16 @@
 package com.AclDemo.AclDemo.Repository;
 
-import com.AclDemo.AclDemo.Models.CharactersModel;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+import com.AclDemo.AclDemo.Models.Character;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
-public interface CharacterRepository extends JpaRepository<CharactersModel, Long> {
+@Repository
+public interface CharacterRepository extends JpaRepository<Character, Long> {
 
-    Optional<CharactersModel> findById(Long id);
+    Optional<Character> findById(Long id);
 
-    List<CharactersModel> findByName(String name);
+    Character findByName(String name);
 
-
-    List<CharactersModel> findByMoviesId(Long id);
-
-    void delete(Optional<CharactersModel> byId);
 }

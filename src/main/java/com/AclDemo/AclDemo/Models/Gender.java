@@ -10,7 +10,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-public class GenderModel {
+public class Gender {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,6 +19,7 @@ public class GenderModel {
 
     private String image;
 
-    @ManyToMany(mappedBy = "genres")
-    private Set<MoviesModel> movies = new HashSet<>();
+    @ManyToMany(mappedBy = "gender")
+
+    private Set<Movie> movies = new HashSet<>();
 }

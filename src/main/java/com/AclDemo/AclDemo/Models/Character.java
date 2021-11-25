@@ -15,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class CharactersModel {
+public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,9 +32,10 @@ public class CharactersModel {
 
     private String history;
 
-    @JoinTable(name = "character_movie",
+    @JoinTable(name = "character_movies",
             joinColumns = @JoinColumn(name = "character_id"),
             inverseJoinColumns = @JoinColumn(name = "movie_id"))
     @ManyToMany
-    private Set<MoviesModel> movies = new HashSet<>();
+    private Set<Movie> movies = new HashSet<>();
+
 }

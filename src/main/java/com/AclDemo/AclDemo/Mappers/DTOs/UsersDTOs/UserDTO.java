@@ -1,4 +1,4 @@
-package com.AclDemo.AclDemo.Mappers.DTOs;
+package com.AclDemo.AclDemo.Mappers.DTOs.UsersDTOs;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
