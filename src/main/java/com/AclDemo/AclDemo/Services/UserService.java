@@ -30,7 +30,7 @@ public class UserService implements UserDetailsService {
         List<GrantedAuthority> roles = new ArrayList<>();
         roles.add(new SimpleGrantedAuthority("Admin"));
 
-        UserDetails userDet = new User(us.getEmail(),us.getPassword(), roles);
+        UserDetails userDet = new User(us.getName(),us.getPassword(), roles);
         return userDet;
     }
 }

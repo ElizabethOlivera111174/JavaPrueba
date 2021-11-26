@@ -26,7 +26,7 @@ public class CharacterController {
     private final CharacterService characterService;
 
     @Operation(description = "Gets all characters")
-    @GetMapping("/AllCharacters")
+    @GetMapping("/getAllCharacters")
     public ResponseEntity<List<CharacterDTO>> getAllCharacters() {
         return new ResponseEntity<>(mappStructMapper.charactersToCharacterDTO(characterService.getAll()), HttpStatus.OK);
     }
@@ -46,7 +46,7 @@ public class CharacterController {
 
     }
 
-    @PostMapping()
+    @PostMapping("/saveCharacter")
     public ResponseEntity<CharacterInUpDTO> saveCharacter(@Valid @RequestBody CharacterInUpDTO character) {
 
      Character character1= characterService.save(mappStructMapper.CharacterInsetDtoToCharacter(character));
