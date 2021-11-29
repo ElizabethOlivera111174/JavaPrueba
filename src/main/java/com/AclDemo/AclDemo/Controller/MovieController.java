@@ -47,7 +47,7 @@ public class MovieController {
 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/findMovieById/{id}")
     public ResponseEntity<MoviesDTO> findMovieById(@PathVariable("id") Long movieId) {
 
         return new ResponseEntity(mappStructMapper.moviesToMovieDto(movieService.findById(movieId)), HttpStatus.OK);
@@ -61,7 +61,7 @@ public class MovieController {
         return new ResponseEntity<>(mappStructMapper.moviesToMovieDtos(movieService.findByTitle(title)), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteMovieById/{id}")
     public ResponseEntity<HttpStatus> deleteMovieById(@PathVariable("id") Long id) {
 
         movieService.delete(id);

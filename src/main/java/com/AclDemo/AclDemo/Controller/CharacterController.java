@@ -2,6 +2,7 @@ package com.AclDemo.AclDemo.Controller;
 
 import com.AclDemo.AclDemo.Mappers.DTOs.CharactersDTOs.CharacterDTO;
 import com.AclDemo.AclDemo.Mappers.DTOs.CharactersDTOs.CharacterInUpDTO;
+import com.AclDemo.AclDemo.Mappers.DTOs.CharactersDTOs.CharacterInsertDTO;
 import com.AclDemo.AclDemo.Mappers.MappStructMapper;
 import com.AclDemo.AclDemo.Models.Character;
 import com.AclDemo.AclDemo.Services.CharacterService;
@@ -32,14 +33,14 @@ public class CharacterController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/getCharacterById/{id}")
     public ResponseEntity<CharacterDTO> getCharacterById(@PathVariable("id") Long id) {
 
-        return new ResponseEntity<>(mappStructMapper.characterToCharacterDto(characterService.findById(id)), HttpStatus.OK);
+        return new ResponseEntity(mappStructMapper.characterToCharacterDto(characterService.findById(id)), HttpStatus.OK);
 
     }
 
-    @GetMapping(params = "name")
+    @GetMapping("/findCharacterByName")
     public ResponseEntity<List<CharacterInUpDTO>> findCharacterByName(@Parameter(description = "Filter by name") @RequestParam(value = "name", required = false) String name) {
 
         return new ResponseEntity(characterService.findByName(name), HttpStatus.OK);
@@ -47,23 +48,24 @@ public class CharacterController {
     }
 
     @PostMapping("/saveCharacter")
-    public ResponseEntity<CharacterInUpDTO> saveCharacter(@Valid @RequestBody CharacterInUpDTO character) {
+    public ResponseEntity<CharacterInUpDTO> saveCharacter(@Valid @RequestBody CharacterInsertDTO character) {
 
-     Character character1= characterService.save(mappStructMapper.CharacterInsetDtoToCharacter(character));
+     Character character1= characterService.save(mappStructMapper.CharacterInsertDtoToCharacter(character));
 
         return new ResponseEntity(mappStructMapper.characterToCharacterDto(character1), HttpStatus.CREATED);
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<CharacterInUpDTO> updateCharacter(@Valid @RequestBody CharacterInUpDTO character, @PathVariable("id") Long id) {
+    @PatchMapping("/updateCharacter/{id}")
+    public ResponseEntity<CharacterInUpDTO> updateCharacter(@Valid @RequestBody CharacterInUpDTO character,@PathVariable("id") Long id) {
 
-        Character characterUpdated = characterService.save(characterService.findById(id));
+        Character characterUpdated = characterService.save(mappStructMapper.updateCharacterFromDto(character, characterService.findById(id)));
 
-        return new ResponseEntity(characterUpdated, HttpStatus.OK);
+        return new ResponseEntity(mappStructMapper.characterToCharacterDto(characterUpdated), HttpStatus.OK);
+
 
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteCharacterById/{id}")
     public ResponseEntity<HttpStatus> deleteCharacterById(@PathVariable("id") Long id) {
 
         characterService.delete(id);
