@@ -28,8 +28,4 @@ public class CharacterInUpDTO {
 
     private String history;
 
-    private long movie_id;
-
-
-
 }

@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 public class CharacterInsertDTO {
+    private Long id;
 
     private String name;
 
@@ -21,5 +22,4 @@ public class CharacterInsertDTO {
 
     private String history;
 
-    private long movie_id;
 }

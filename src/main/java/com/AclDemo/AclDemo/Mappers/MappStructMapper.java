@@ -16,7 +16,7 @@ public interface  MappStructMapper {
 
     Character characterToCharacterDto(Character characterModel);
     Character CharacterInsetDtoToCharacter(CharacterInUpDTO characterInUpDTO);
-    Character CharacterInsertDtoToCharacter(CharacterInsertDTO characterInUpDTO);
+    Character CharacterInsertDtoToCharacter(CharacterInsertDTO character);
     List<CharacterDTO> charactersToCharacterDTO(List<Character> characters);
 
     List<MoviesDTO> moviesToMovieDtos(List<Movie> movies);
