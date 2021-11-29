@@ -9,16 +9,16 @@ import org.springframework.context.annotation.Configuration;
 
 
     @Configuration
-    @OpenAPIDefinition(info = @Info(title = "Disney API",
-            description = "API for exploring the world of Disney",
+    @OpenAPIDefinition(info = @Info(title = "API Peliculas",
+            description = "API para explorar el mundo del cine",
             version = "1.0",
             contact = @Contact(
-                    name = "Fernando Arellano",
-                    email = "f.arellano919@gmail.com",
-                    url = "https://github.com/farellano91"
+                    name = "Elizabeth Olivera Gutierrez",
+                    email = "eliolivera570@gmail.com"
             ),
+
             license = @License(
-                    name = "MIT Licence",
+                    name = "ACL Tecnologia",
                     url = "https://opensource.org/licenses/mit-license.php"
             )
     ))

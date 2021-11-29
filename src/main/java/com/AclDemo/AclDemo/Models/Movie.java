@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.xml.stream.events.Characters;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class MoviesModel {
+public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,11 +33,11 @@ public class MoviesModel {
     private Integer rating;
 
     @ManyToMany(mappedBy = "movies")
-    private Set<CharactersModel> characters = new HashSet<>();
+    private Set<Character> characters = new HashSet<>();
 
-    @JoinTable(name = "movie_genre",
+    @JoinTable(name = "movie_gender",
             joinColumns = @JoinColumn(name = "movie_id"),
-            inverseJoinColumns = @JoinColumn(name = "genre_id"))
+            inverseJoinColumns = @JoinColumn(name = "gender_id"))
     @ManyToMany
-    private Set<GenderModel> genres = new HashSet<>();
+    private Set<Gender> gender = new HashSet<>();
 }

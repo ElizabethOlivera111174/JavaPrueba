@@ -8,8 +8,7 @@ import javax.persistence.*;
 @Entity
     @Getter
     @Setter
-    @Table(name="Users")
-    public class UserModel {
+    public class Users {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(unique = true, nullable = false,name="id")
@@ -17,9 +16,6 @@ import javax.persistence.*;
 
         @Column(name="name")
         private String name;
-
-        @Column(name="lastName")
-        private String lastName;
 
         @Column(name="email")
         private String email;
