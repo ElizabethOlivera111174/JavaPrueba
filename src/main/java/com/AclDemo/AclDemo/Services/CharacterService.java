@@ -1,6 +1,8 @@
 package com.AclDemo.AclDemo.Services;
 
 import com.AclDemo.AclDemo.IServices.IcharactersService;
+import com.AclDemo.AclDemo.Mappers.DTOs.CharactersDTOs.CharacterDTO;
+import com.AclDemo.AclDemo.Mappers.MappStructMapper;
 import com.AclDemo.AclDemo.Models.Character;
 import com.AclDemo.AclDemo.Repository.CharacterRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,9 +17,11 @@ import java.util.List;
 public class CharacterService implements IcharactersService {
 
     private final CharacterRepository characterRepository;
+    private final MappStructMapper mappStructMapper;
 
 
-    @Override
+
+
     public List<Character>getAll() {
 
         return characterRepository.findAll();

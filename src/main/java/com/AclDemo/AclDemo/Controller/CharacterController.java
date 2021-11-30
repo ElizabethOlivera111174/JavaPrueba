@@ -26,10 +26,15 @@ public class CharacterController {
     private final MappStructMapper mappStructMapper;
     private final CharacterService characterService;
 
-    @Operation(description = "Gets all characters")
+    /*@Operation(description = "Gets all characters")
     @GetMapping("/getAllCharacters")
     public ResponseEntity<List<CharacterDTO>> getAllCharacters() {
         return new ResponseEntity<>(mappStructMapper.charactersToCharacterDTO(characterService.getAll()), HttpStatus.OK);
+    }*/
+    @Operation(description = "Gets all characters")
+    @GetMapping("/getAllCharacters")
+    public ResponseEntity<List<CharacterDTO>> getAllCharacters() {
+        return new ResponseEntity<>(characterService.getAll(), HttpStatus.OK);
     }
 
 
