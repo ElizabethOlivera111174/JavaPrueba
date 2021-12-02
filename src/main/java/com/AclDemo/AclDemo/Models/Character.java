@@ -18,17 +18,12 @@ import java.util.Set;
 public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "character_id", nullable = false)
     private Long id;
 
     private String name;
 
-    private String lastName;
-
     private String image;
-
-    private String Awards;
-
-    private LocalDateTime AwardsDate;
 
     private String history;
 

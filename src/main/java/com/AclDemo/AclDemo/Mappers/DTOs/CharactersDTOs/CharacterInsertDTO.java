@@ -9,17 +9,13 @@ import java.time.LocalDateTime;
 @Getter
 public class CharacterInsertDTO {
 
-    private String name;
 
-    private String lastName;
+    private Long id;
+
+    private String name;
 
     private String image;
 
-    private String Awards;
-
-    private LocalDateTime AwardsDate;
-
     private String history;
 
-    private long movie_id;
 }

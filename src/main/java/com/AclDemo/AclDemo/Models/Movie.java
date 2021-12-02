@@ -18,13 +18,13 @@ import java.util.Set;
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "movie_id", nullable = false)
     private Long id;
 
     private String title;
 
     private String image;
 
-    private String Records;
 
     private String Awards;
 
@@ -33,7 +33,7 @@ public class Movie {
     private Integer rating;
 
     @ManyToMany(mappedBy = "movies")
-    private Set<Character> characters = new HashSet<>();
+    private Set<Character> character = new HashSet<>();
 
     @JoinTable(name = "movie_gender",
             joinColumns = @JoinColumn(name = "movie_id"),

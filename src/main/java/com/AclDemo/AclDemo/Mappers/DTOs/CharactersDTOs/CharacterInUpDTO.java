@@ -18,18 +18,8 @@ public class CharacterInUpDTO {
 
     private String name;
 
-    private String lastName;
-
     private String image;
 
-    private String Awards;
-
-    private LocalDateTime AwardsDate;
-
     private String history;
-
-    private long movie_id;
-
-
 
 }
